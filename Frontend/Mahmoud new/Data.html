@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Data.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css" />
+</head>
+
+<body>
+    <hr style="width: 50%;">
+    <div class="con">
+        <h1>Title</h1>
+        <div class="grey">Category: Species: </div>
+        <br>
+        <div class="content">
+            <div>
+                <div id="DIV" class="gradient">
+                    &nbsp&nbspAvinash Jain is currently a senior at UC Berkeley majoring in Electrical Engineering and
+                    Computer
+                    Science. He's the CEO and Founder of TheCodex, an online educational platform focused on bringing
+                    the best programming content to hundreds of thousands of students around the world.
+
+                    His programming journey began at the age of 10, starting off with simple Python scripts to crawl the
+                    weather. Since then, he's worked at numerous companies and is professionally experienced in Python,
+                    iOS Development and Web Development. He's launched a plethora of applications in the App Store
+                    amassing thousands of downloads. Additionaly, he's competed and won in several hackathons around
+                    the
+                    world including</div><span id="dots"></span><span id="more"> PennApps and NWHacks.
+
+                    Avinash has a passion to teach - his enthusiasm and love for programming is evident in every
+                    video.
+                    For the past 7 years he's been an instructor on Udemy and he loves motivating and enabling
+                    others to
+                    pursue their programming dreams. He hopes to help students realize the power of programming and
+                    jumpstart their careers through his courses.
+
+                    Checkout TheCodex for all of his courses, fantastic discounts, and any guidance or
+                    help.</span><br>
+                <button onclick="myFunction()" id="myBtn">
+                    <span id="btnText">show more</span>
+                    <i id="angle-down" class="uil uil-angle-down"></i>
+                    <i id="angle-up" class="uil uil-angle-up"></i>
+                </button>
+            </div>
+            <div><img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                    alt="image" class="image"></div>
+        </div>
+        <div>Resources: <a href="#">Resource</a></div>
+    </div>
+    <hr style="width: 50%;">
+    <script>
+        const upArrow = document.getElementById('angle-up');
+        const downArrow = document.getElementById('angle-down');
+        upArrow.style.display = 'none';
+
+        function myFunction() {
+            const dots = document.getElementById("dots");
+            const moreText = document.getElementById("more");
+            const iconn = document.getElementsByClassName("uil uil-angle-down");
+            const btnText = document.getElementById("btnText");
+            var element = document.getElementById("DIV");
+
+
+            if (dots.style.display === "none") {
+                dots.style.display = "inline";
+                btnText.innerText = "show more";
+                moreText.style.display = "none";
+                upArrow.style.display = 'none';
+                downArrow.style.display = 'inline';
+                element.classList.add("gradient");
+            } else {
+                dots.style.display = "none";
+                btnText.innerText = "show less";
+                moreText.style.display = "inline";
+                upArrow.style.display = 'inline';
+                downArrow.style.display = 'none';
+                element.classList.remove("gradient");
+            }
+        }
+    </script>
+</body>
+
+</html>
