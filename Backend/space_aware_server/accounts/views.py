@@ -5,6 +5,7 @@ from .serializers import UserSerializer, RegisterSerializer
 from knox.views import LoginView as KnoxLoginView
 from rest_framework.authtoken.serializers import AuthTokenSerializer
 from django.contrib.auth import login
+from .forms import *
 
 
 # Register API
@@ -15,6 +16,11 @@ class RegisterAPI(generics.GenericAPIView):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
+        user_profile_form = UserProfileForm(request.data)
+        if user_profile_form.is_valid():
+            user_profile_form.save()
+        else:
+            return user_profile_form.errors
         return Response({
             "user": UserSerializer(user, context=self.get_serializer_context()).data,
             "token": AuthToken.objects.create(user)[1]

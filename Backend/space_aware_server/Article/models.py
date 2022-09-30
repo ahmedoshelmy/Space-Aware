@@ -8,3 +8,6 @@ class Article(models.Model):
     description = models.TextField()
     image = models.CharField(max_length=30, )
     resource = models.CharField(max_length=30)
+
+    class Meta:
+        db_table = 'article'
