@@ -9,7 +9,7 @@ from .serializers import ArticleSerializer
 
 def get_all_articles():
     articles = ArticleModel.objects.all()
-    data = serializers.serialize('json', articles, fields=("title"))
+    data = serializers.serialize('json', articles, fields=("title", "description", "image", "resource"))
     json_data = json.loads(data)
     return Response(json_data, status=status.HTTP_201_CREATED)
 
