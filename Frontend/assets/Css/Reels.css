@@ -1,0 +1,124 @@
+*{
+    margin:0%;
+    box-sizing: border-box;
+} 
+html{
+    scroll-snap-type: y mandatory;
+}  
+body{
+    color: white;
+    background-color: black;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+.app__video{
+    position: relative;
+    height: 750px;
+    background-color: white;
+    overflow: scroll;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 20px;
+    scroll-snap-type: y mandatory;
+}
+
+.app__video::-webkit-scrollbar{
+    display: none;
+}
+.app__video{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.video{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    scroll-snap-align: start;
+}
+.video__player{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.video__header{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.video__header a{
+    text-decoration: none;
+}
+.video__header *{
+    padding: 20px;
+}
+.video__footer{
+    position: relative;
+    bottom: 95px;
+    margin-left:20px ;
+}
+.video__footer-text{
+    position: absolute;
+    bottom: 0;
+    color: #fff;
+    margin-bottom: 45px;
+}
+.video__footer-text h3{
+    margin-left: 10px;
+
+}
+.video__footer-ticker{
+    width: 20%;
+    margin-left: 30px;
+    margin-bottom: 20px;
+    height: fit-content;
+}
+.video__footer-ticker marquee{
+    font-size: 12px;
+    padding-top: 3px;
+    color: #fff;
+}
+.video__footer-ticker .uil-music{
+    position: absolute;
+    left: 5px;
+    color: #fff;
+}
+.video__footer-actions{
+    display: flex;
+    position: absolute;
+    width: 95%;
+    justify-content: space-between;
+    color: #fff;
+}
+.video__footer-left .uil{
+    padding: 0 7px;
+    font-size: 1.6em;
+}
+.video__footer-right .uil{
+    font-size: 25px ;
+}
+.video__footer-right {
+    display: flex;
+   
+}
+.video__footer-stat{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+.video__footer-stat p{
+    margin-left: 3px;
+}
+.signin{
+    text-decoration: none;
+    float: right;
+    color: white;
+    background-color: rgb(33, 33, 169);
+    padding: 20px 35px;
+    margin-top: -100px;
+    margin-right: 50px;
+    border-radius: 8px;
+}

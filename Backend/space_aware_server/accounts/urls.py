@@ -9,7 +9,6 @@ urlpatterns = [
     path('logoutall/', knox_views.LogoutAllView.as_view(), name='logoutall'),
     path('all_users/', AllUsers.as_view()),
     path('all_profiles/', AllProfiles.as_view()),
-    path('single_profile/', UserView.as_view()),
+    path('single_profile/<str:name>', UserView.as_view()),
     path('ranked_profiles/', RankedUserView.as_view()),
-
 ]

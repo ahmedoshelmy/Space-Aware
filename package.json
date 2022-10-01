@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "axios": "^0.27.2",
+    "primeicons": "^6.0.1",
+    "primereact": "^8.6.1",
+    "react-data-table-component": "^7.5.3"
+  }
+}

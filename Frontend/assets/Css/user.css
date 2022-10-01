@@ -1,0 +1,43 @@
+body{
+    background-color: rgba(128, 128, 128, 0.164);
+}
+.inp_from_user{
+    border: 2px gray solid;
+    width: fit-content;
+    display: none;
+}
+.userdet{
+    border: 2px gray solid;
+    box-shadow: 0px 0px 10px 0px gray;
+    width: 60%;
+    height: fit-content;
+    padding: 25px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 120px;
+    background-color: white;
+}
+.image_name{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 40%;
+    padding-bottom: 15px;
+    border-bottom: 2px gray solid;
+}
+.image_name i{
+    font-size: 50px;
+    margin-top: 15px;
+    color: gray;
+}
+.dynaicon{
+    margin-top: 100px;
+}
+.dynaicon i a{
+    float: left;
+    font-size: 30px;
+}
+.dynaicon i:nth-child(2){
+    float: right;
+    font-size: 30px;
+    cursor: pointer;
+}

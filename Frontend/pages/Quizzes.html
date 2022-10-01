@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=============== UNICONS ===============-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css" />
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="../assets/Css/style.css" />
+
+    <!--======== CSS Sections ========-->
+
+    <title>Quizzes</title>
+    <script src="assets/Js/jquery-3.6.0.js"></script>
+</head>
+
+<body onload="NextQuestion(0)">
+    <div class="gal" id='quizzes-view'>
+        <nav class="nav-pages">
+            <a href="index.html" class="nav__logo logo__light"><img class="space-logo"
+                    src="../assets/Img/image-removebg-preview.png" alt=""></a>
+            <a href="index.html" class="nav__logo logo__dark"><img class="space-logo"
+                    src="../assets/Img/msp-logo-dark.png" alt=""></a>
+            <!-- <a href="index.html" class="nav__logo logo__light">MSP</a> -->
+            <!-- <a href="index.html" class="nav__logo logo__dark">MSP</a> -->
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../index.html" class="nav__link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../pages/Reels.html" class="nav__link">Reels</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../pages/Game.html" class="nav__link">Game</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../pages/Quizzes.html" class="nav__link">Quizzes</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="../pages/Account.html" class="nav__link">Account</a>
+                    </li>
+                </ul>
+                <div class="nav__close" id="nav-close">
+                    <i class="uil uil-times"></i>
+                </div>
+            </div>
+            <div class="nav__toggle" id="nav-toggle" onclick="showMenu()">
+                <i class="uil uil-apps"></i>
+            </div>
+
+            <a href="Login.html" class="button__in button__heder">
+                Log in
+            </a>
+        </nav>
+        <main class="quiz">
+            <!-- creating a modal for when quiz ends -->
+            <div class="modal-container" id="score-modal">
+
+                <div class="modal-content-container">
+
+                    <h1>Congratulations, Quiz Completed.</h1>
+
+                    <div class="grade-details">
+                        <p>Attempts : 10</p>
+                        <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                        <p>Right Answers : <span id="right-answers"></span></p>
+                        <p>Grade : <span id="grade-percentage"></span>%</p>
+                        <p><span id="remarks"></span></p>
+                    </div>
+
+                    <div class="modal-button-container">
+                        <button onclick="closeScoreModal1()">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+            <!-- end of modal of quiz details-->
+            <!--Sherpeney-->
+            <div class="quizz_menu" id="allqq">
+                <div class="qui1" id="qq1">
+                    <h1>Quiz 1</h1>
+                </div>
+                <div class="qui2" id="qq2">
+                    <h1>Quiz 2</h1>
+                </div>
+                <div class="qui3" id="qq3">
+                    <h1>Quiz 3</h1>
+                </div>
+            </div>
+
+            <div class="game-quiz-container" id="gqc">
+                <div><button class="Exit" id="exbtn"><i class="uil uil-x"></i></button></div>
+
+                <div class="game-details-container">
+                    <h1>Score : <span id="player-score"></span> / 10</h1>
+                    <h1> Question : <span id="question-number"></span> / 10</h1>
+                </div>
+
+                <div class="game-question-container">
+                    <h1 id="display-question"></h1>
+                </div>
+
+                <div class="game-options-container">
+
+                    <div class="modal-container" id="option-modal">
+
+                        <div class="modal-content-container">
+                            <h1>Please Pick An Option</h1>
+
+                            <div class="modal-button-container">
+                                <button onclick="closeOptionModal()">Continue</button>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <span>
+                        <input type="radio" id="option-one" name="option" class="radio" value="optionA" />
+                        <label for="option-one" class="option" id="option-one-label"></label>
+                    </span>
+
+
+                    <span>
+                        <input type="radio" id="option-two" name="option" class="radio" value="optionB" />
+                        <label for="option-two" class="option" id="option-two-label"></label>
+                    </span>
+
+
+                    <span>
+                        <input type="radio" id="option-three" name="option" class="radio" value="optionC" />
+                        <label for="option-three" class="option" id="option-three-label"></label>
+                    </span>
+
+
+                    <span>
+                        <input type="radio" id="option-four" name="option" class="radio" value="optionD" />
+                        <label for="option-four" class="option" id="option-four-label"></label>
+                    </span>
+
+
+                </div>
+
+                <div class="next-button-container">
+                    <button onclick="handleNextQuestion()">Next Question</button>
+                </div>
+
+            </div>
+        </main>
+        <div class="footer__container grid footer section" style=" background-color: rgba(49, 10, 106, 0.7);">
+            <div class="footer__content">
+                <img src="../assets/Img/logo-light.png" alt="" calss="footer__logo" />
+                <p class="footer__describtion">
+                    Explore What's Beyond!
+                </p>
+                <div class="footer__social">
+                    <a href="https://www.facebook.com/" class="footer__social-link">
+                        <i class="uil uil-facebook-f"></i>
+                    </a>
+                    <a href="https://twitter.com/" class="footer__social-link">
+                        <i class="uil uil-twitter-alt"></i>
+                    </a>
+                    <a href="https://www.youtube.com/" class="footer__social-link">
+                        <i class="uil uil-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">About</h3>
+                <ul class="footer__Links">
+                    <li><a href="#teachers" class="footer__link">Authors</a></li>
+                </ul>
+            </div>
+            <div class="footer__content">
+                <h3 class="footer__title">Our Services</h3>
+                <ul class="footer__Links">
+                    <li><a href="pages/Reels.html" class="footer__link">Reels</a></li>
+                    <li><a href="pages/Chat.html" class="footer__link">Chat</a></li>
+                    <li><a href="pages/Game.html" class="footer__link">Game</a></li>
+                    <li><a href="pages/Quizzes.html" class="footer__link">Quizzes</a></li>
+                </ul>
+            </div>
+            <div></div>
+            <span class="footer__copy">&#169; Space Aware. All rights reserved</span>
+        </div>
+    </div>
+    </div>
+    <script src="../assets/Js/main.js"></script>
+</body>
+
+</html>

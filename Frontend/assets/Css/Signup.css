@@ -1,0 +1,24 @@
+.all{
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 50%;
+    box-shadow: 5px 5px 10px 0px gray;
+    height: 520px;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 130px;
+}    
+.pic img{
+    height: 520px;
+}
+.Signup{
+    width: fit-content;
+    padding: 50px 60px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-left: transparent;
+}
+.Signup input{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

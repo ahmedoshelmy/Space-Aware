@@ -1,0 +1,1404 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@500;600;700&display=swap');
+
+/*=============== VARIABLES CSS ===============*/
+
+:root {
+    --header-height: 3rem;
+
+    /*========== Colors ==========*/
+    --hue: 250;
+    --first-color: hsl(var(--hue), 100%, 58%);
+    --title-color: hsl(var(--hue), 8%, 15%);
+    --text-color: hsl(var(--hue), 8%, 35%);
+    --body-color: #fff;
+    --border-color: hsl(var(--hue), 8%, 80%);
+    --container-color: hsl(var(--hue), 60%, 97%);
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: 'Hind', sans-serif;
+    --biggest-font-size: 4rem;
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+    --small-font-size: 0.875rem;
+    --smaller-font-size: 0.813rem;
+
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semibold: 600;
+    --font-bold: 700;
+
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+/* Responsive typography */
+@media screen and (max-width: 1024px) {
+    :root {
+        --biggest-font-size: 2.75rem;
+        --h1-font-size: 1.5rem;
+        --h2-font-size: 1.25rem;
+        --h3-font-size: 1rem;
+        --normal-font-size: 0.938rem;
+        --small-font-size: 0.813rem;
+        --smaller-font-size: 0.75rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+input,
+textarea {
+    font-family: var(--body-font);
+    font-size: var(--normal-font-size);
+}
+
+body {
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+h1,
+h2,
+h3 {
+    color: var(--title-color);
+    font-weight: var(--font-semibold);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*=============== LAYOUT ===============*/
+.container {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.grid {
+    display: grid;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+    padding: 7rem 0 1rem;
+}
+
+.section__title {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-bold);
+    text-align: center;
+    margin-bottom: 0.25rem;
+    line-height: 140%;
+}
+
+.section__subtitle {
+    text-align: center;
+}
+
+/*=============== HEADER & NAV ===============*/
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    z-index: var(--z-fixed);
+    transition: .4s;
+}
+
+.nav {
+    height: calc(var(--header-height) + 1.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-pages {
+    height: calc(var(--header-height) + 1.5rem);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgba(49, 10, 106, 0.4);
+
+    position: relative;
+}
+
+.logo__dark {
+    display: none;
+}
+
+.nav__link,
+.nav__toggle {
+    color: #fff;
+    font-weight: var(--font-semibold);
+}
+
+.nav__list {
+    display: flex;
+    flex-direction: row;
+    column-gap: 2.5rem;
+}
+
+.nav__toggle {
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+    cursor: pointer;
+    display: none;
+}
+
+.nav_link :hover {
+    background-color: #03a9f4;
+
+}
+
+.nav__close {
+    display: none;
+}
+
+/* Active link */
+.active-link::before {
+    content: '';
+    position: absolute;
+    bottom: 1.5rem;
+    left: 39.62%;
+    width: 5px;
+    height: 5px;
+    background-color: var(--body-color);
+    border-radius: 50%;
+}
+
+/* Change background header */
+.scroll-header {
+    background-color: var(--container-color);
+    box-shadow: 0 1px 4px hsla(var(--hue), 4%, 15%, .1);
+}
+
+.scroll-header .logo__light {
+    display: none;
+}
+
+.scroll-header .logo__dark {
+    display: block;
+}
+
+.scroll-header .nav__link {
+    color: var(--title-color);
+}
+
+.scroll-header .active-link::before {
+    background-color: var(--title-color);
+}
+
+.scroll-header .nav__toggle {
+    color: var(--title-color);
+}
+
+
+.space-logo {
+    width: 300px;
+}
+
+/*=============== HOME ===============*/
+.home {
+    position: relative;
+    min-height: 968px;
+    /* background: url(../Img/home.jpg); */
+    padding: 18rem 0 2rem;
+    overflow: hidden;
+}
+
+.back__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+
+}
+
+.home::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 3, 62, 0.66);
+    z-index: -1;
+}
+
+.home__data {
+    max-width: 650px;
+}
+
+.home__subtitle {
+    font-size: var(--h3-font-size);
+    font-weight: var(--font-medium);
+    color: #ffb352;
+    margin-top: 1rem;
+}
+
+.home__title {
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-bold);
+    color: #fff;
+    line-height: 109%;
+    margin-bottom: 1.5rem
+}
+
+.home__description {
+    font-size: var(--h3-font-size);
+    color: hsl(var(--hue), 8%, 75%);
+    padding-right: 2.8rem;
+    margin-bottom: 2.5rem;
+}
+
+.about__committees {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-tooltip);
+    grid-template-columns: repeat(5, 1fr)
+}
+
+.about__course-item {
+    position: relative;
+    height: 100px;
+    padding: 23px 50px;
+    padding-right: 1.8rem;
+    z-index: -1;
+}
+
+.about__course-item::after {
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+}
+
+
+
+.about__course-item:nth-child(1)::after {
+    background: rgba(247, 100, 30, 0.8);
+}
+
+
+
+.about__course-item:nth-child(2)::after {
+    background: rgba(45, 105, 240, 0.8);
+}
+
+
+
+.about__course-item:nth-child(3)::after {
+    background: rgba(231, 36, 110, 0.8);
+}
+
+
+
+.about__course-item:nth-child(4)::after {
+    background: rgba(30, 124, 106, 0.8);
+}
+
+
+
+.about__course-item:nth-child(5)::after {
+    background: rgba(12, 174, 116, 0.8);
+}
+
+.about__course-total {
+    display: inline-block;
+    color: #fff;
+    opacity: 0.8;
+}
+
+.about__course-title {
+    color: #fff;
+    font-size: var(--h3-font-size);
+}
+
+/*=============== BUTTONS ===============*/
+.button {
+    display: inline-block;
+    color: var(--body-color);
+    padding: 0.8rem 1.75rem;
+    border-radius: 0.5rem;
+    font-weight: var(--font-medium);
+    background-color: var(--first-color);
+    scale: 1;
+    transition: 0.4s;
+}
+
+.button:hover {
+    scale: 1.1;
+    transition: 0.4s;
+}
+
+.button__in {
+    color: #fff;
+    transition: 0.4s;
+}
+
+.button__in:hover {
+    /*display: inline-block;*/
+    color: var(--body-color);
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: var(--font-medium);
+    background-color: var(--first-color);
+    transition: 0.4s;
+}
+
+.button--link {
+    color: var(--first-color);
+    border: 2px solid var(--first-color);
+    background-color: transparent;
+    transition: 0.4s;
+}
+
+.button--link:hover {
+    background-color: var(--first-color);
+    color: #fff;
+}
+
+/*=============== ABOUT ===============*/
+.about__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 6rem;
+    margin-left: 7rem;
+}
+
+.about__group {
+    justify-self: flex-end;
+    position: relative;
+}
+
+.about__thumb {
+    margin-left: 6.25rem;
+}
+
+.about__thumb-img {
+    width: 250px;
+}
+
+.about__review {
+    position: absolute;
+    left: -1.5rem;
+    top: 6.25rem;
+    transform: rotate(90deg);
+}
+
+.about__review p span {
+    font-weight: var(--font-semibold);
+    color: var(--title-color);
+}
+
+.about__banner {
+    margin-top: -5rem;
+}
+
+.about__banner-img {
+    width: 240px;
+    border-radius: 0.4rem;
+}
+
+.about__students {
+    margin-left: 18rem;
+    margin-top: 3rem;
+}
+
+.about__students-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--container-color);
+}
+
+.about__students-img+.about__students-img {
+    margin-left: -0.75rem;
+}
+
+.about__student-details {
+    margin-top: 0.25rem;
+    font-size: var(--small-font-size);
+}
+
+.about__student-details span {
+    font-weight: var(--font-semibold);
+    color: var(--title-color);
+}
+
+.about__title {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.about__description {
+    margin-bottom: 2rem;
+    padding-right: 2rem;
+}
+
+.about__details {
+    display: grid;
+    row-gap: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.about__details-description {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-size: var(--small-font-size);
+    color: var(--title-color);
+}
+
+.about__details-icon {
+    font-size: 1.25rem;
+    color: var(--first-color);
+}
+
+/*=============== TEACHERS ===============*/
+.teachers__container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+    padding: 7rem;
+}
+
+.teacher__item {
+    background-color: var(--container-color);
+    padding: 1.875rem;
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.teacher__img-box {
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+}
+
+.teacher__img-box img {
+    transform: scale(1);
+    vertical-align: middle;
+    transition: 0.4s;
+}
+
+.teacher__img-box:hover img {
+    transform: scale(1.1);
+}
+
+.teacher__title {
+    display: inline-block;
+    font-size: var(--h3-font-size);
+    margin-bottom: 0.75rem;
+}
+
+/*=============== Quizzes PAGE ===============*/
+.quiz {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.gal {
+    background: url('../Img/Galaxy.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.game-quiz-container {
+    width: 40rem;
+    height: 30rem;
+    background-color: var(--border-color);
+    padding-left: 6.5rem;
+    justify-content: space-around;
+    border-radius: 30px;
+    display: none;
+    /*None to clock on it to make a quiz dispaly<=================================================================================================*/
+}
+
+.Exit {
+    border: none;
+    color: red;
+    opacity: 30%;
+    background-color: var(--border-color);
+    float: right;
+    margin-right: 40px;
+    margin-top: 10px;
+    font-size: large;
+    scale: 1;
+    transform: 0.4s;
+}
+
+.Exit:hover {
+    scale: 1.1;
+    transform: 0.4s;
+    opacity: 100%;
+    cursor: pointer;
+}
+
+/*The Addition Of three quizes sherpeney */
+.quizz_menu {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 9rem;
+}
+
+.qui1 {
+    background-color: #eee;
+    border-radius: 30px;
+    padding: 5px 20px;
+    transition: all 300ms ease;
+    cursor: pointer;
+    animation: aniqu1;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-play-state: paused;
+
+}
+
+@keyframes aniqu1 {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: rotateX(360deg);
+    }
+}
+
+@keyframes aniqu2 {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: rotateX(360deg);
+    }
+}
+
+@keyframes aniqu3 {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: rotateX(360deg);
+    }
+}
+
+.qui2 {
+    background-color: #eee;
+    border-radius: 30px;
+    padding: 5px 20px;
+    transition: all 300ms ease;
+    cursor: pointer;
+    animation: aniqu2;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-play-state: paused;
+}
+
+.qui3 {
+    background-color: #eee;
+    border-radius: 40px;
+    padding: 5px 20px;
+    transition: all 300ms ease;
+    cursor: pointer;
+    animation: aniqu3;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-duration: 1s;
+    animation-play-state: paused;
+}
+
+.qui1:hover,
+.qui2:hover,
+.qui3:hover {
+    background-color: var(--first-color);
+
+}
+
+/*********************************************************************/
+.game-details-container {
+    width: 80%;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.game-details-container h1 {
+    font-size: 1.2rem;
+}
+
+.game-question-container {
+    width: 80%;
+    height: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid darkgray;
+    border-radius: 25px;
+}
+
+.game-question-container h1 {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 3px;
+}
+
+.game-options-container {
+    width: 80%;
+    height: 12rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.game-options-container span {
+    width: 45%;
+    height: 3rem;
+    border: 2px solid darkgray;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+span label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: 600;
+    color: rgb(22, 22, 22);
+}
+
+span label:hover {
+    -ms-transform: scale(1.12);
+    -webkit-transform: scale(1.12);
+    transform: scale(1.12);
+    color: white;
+    background-color: var(--first-color);
+}
+
+input[type="radio"] {
+    position: relative;
+    display: none;
+}
+
+
+input[type=radio]:checked~.option {
+    background: paleturquoise;
+}
+
+.next-button-container {
+    width: 50%;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    padding-left: 10rem;
+}
+
+.next-button-container button {
+    width: 8rem;
+    height: 2rem;
+    border-radius: 10px;
+    background: none;
+    color: rgb(25, 25, 25);
+    font-weight: 600;
+    border: 2px solid gray;
+    cursor: pointer;
+    outline: none;
+}
+
+.next-button-container button:hover {
+    background-color: rgb(235, 232, 232);
+}
+
+.modal-container {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(151, 148, 148, 0.4);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    -webkit-animation: fadeIn 1.2s ease-in-out;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.modal-content-container {
+    height: 20rem;
+    width: 25rem;
+    background-color: var(--first-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 25px;
+}
+
+.modal-content-container h1 {
+    font-size: 1.3rem;
+    height: 3rem;
+    color: rgb(31, 30, 30);
+    text-align: center;
+}
+
+.grade-details {
+    width: 15rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.grade-details p {
+    color: white;
+    text-align: center;
+}
+
+.modal-button-container {
+    height: 2rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-button-container button {
+    width: 10rem;
+    height: 2rem;
+    background: none;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 20px;
+}
+
+.modal-button-container button:hover {
+    background-color: rgb(255, 255, 255);
+}
+
+@media(min-width : 300px) and (max-width : 350px) {
+    .game-quiz-container {
+        width: 90%;
+        height: 80vh;
+    }
+
+    .game-details-container h1 {
+        font-size: 0.8rem;
+    }
+
+    .game-question-container {
+        height: 6rem;
+    }
+
+    .game-question-container h1 {
+        font-size: 0.9rem;
+    }
+
+    .game-options-container span {
+        width: 90%;
+        height: 2.5rem;
+    }
+
+    .game-options-container span label {
+        font-size: 0.8rem;
+    }
+
+    .modal-content-container {
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1 {
+        font-size: 1.2rem;
+    }
+}
+
+@media(min-width : 350px) and (max-width : 700px) {
+    .game-quiz-container {
+        width: 90%;
+        height: 80vh;
+    }
+
+    .game-details-container h1 {
+        font-size: 1rem;
+    }
+
+    .game-question-container {
+        height: 8rem;
+    }
+
+    .game-question-container h1 {
+        font-size: 0.9rem;
+    }
+
+    .game-options-container span {
+        width: 90%;
+    }
+
+    .modal-content-container {
+        width: 90%;
+        height: 25rem;
+    }
+
+    .modal-content-container h1 {
+        font-size: 1.2rem;
+    }
+}
+
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+/*=============== sign up PAGE ===============*/
+.all{
+    position: absolute;
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 50%;
+    box-shadow: 5px 5px 10px 0px var(--border-color);
+    height: 475px;
+    margin-left: 350px;
+    margin-top: 130px;
+    visibility: hidden;
+    z-index: 5;
+}    
+.pic img{
+    height: 475px;
+}
+.Signup{
+    width: fit-content;
+    padding: 50px 60px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-left: transparent;
+}
+.Signup input{
+    margin-top: 11px;
+    margin-bottom: 11px;
+    background-color: transparent;
+    border-bottom: black ;
+}
+/*=============== FOOTER ===============*/
+.footer {
+    background-color: #0e1133;
+
+}
+
+.footer__container {
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    column-gap: 1.7rem;
+}
+
+.footer__describtion {
+    color: hsl(var(--hue), 8%, 75%);
+    margin-bottom: 2.5rem;
+}
+
+.footer__social {
+    display: flex;
+    column-gap: 0.75rem;
+}
+
+.footer__social-link {
+    display: inline-block;
+    background-color: var(--container-color);
+    width: 44px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    color: #fff;
+    border: 2px solid;
+    transition: 0.4s;
+}
+
+.footer__social-link:nth-child(1) {
+    background-color: #285da1;
+    border-color: #285da1;
+}
+
+.footer__social-link:nth-child(2) {
+    background-color: #03a9f4;
+    border-color: #03a9f4;
+}
+
+.footer__social-link:nth-child(3) {
+    background-color: #d2173f;
+    border-color: #d2173f;
+}
+
+.footer__social-link:hover {
+    background-color: transparent;
+}
+
+.footer__title {
+    font-size: var(--h3-font-size);
+    color: #fff;
+    margin-top: 1rem;
+}
+
+.footer__links {
+    display: grid;
+    row-gap: 0.35rem;
+}
+
+.footer__link {
+    font-size: var(--normal-font-size);
+    color: hsl(var(--hue), 8%, 75%);
+    transition: 0.3s;
+}
+
+.footer__link:hover {
+    color: #fff;
+}
+
+.footer__copy {
+    display: block;
+    text-align: center;
+    font-size: var(--normal-font-size);
+    color: hsl(var(--hue), 8%, 75%);
+    margin-top: 6rem;
+}
+
+/*=============== SCROLL BAR ===============*/
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For large devices */
+@media screen and (max-width:1206px) {
+    .container {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .about__course-item {
+        padding: 16px 18px;
+    }
+
+    .about__container {
+        column-gap: 3rem;
+    }
+
+    .about__description {
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width:1024px) {
+    .container {
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
+    }
+
+    .home {
+        max-height: 686px;
+    }
+
+    .home__data {
+        max-width: 550px;
+    }
+
+    .about__container {
+        grid-template-columns: 1fr;
+        row-gap: 3rem;
+    }
+
+    .about__group {
+        justify-self: center;
+    }
+
+    .about__banner {
+        margin-top: -110px;
+    }
+
+    .about__thumb-img {
+        width: 270px;
+    }
+
+    .about__banner-img {
+        width: 180px;
+    }
+
+    .about__students {
+        margin-top: -80px;
+        margin-left: 220px;
+    }
+
+    .teachers__container,
+    .cousres__container {
+        grid-template-columns: repeat(2, 340px);
+        justify-content: center;
+    }
+
+    .course__content {
+        padding: 1rem 1.25rem;
+    }
+
+    .course__more {
+        padding: .5rem 1.25rem;
+    }
+}
+
+/* For medium devices */
+@media screen and (max-width:767px) {
+    .nav {
+        height: var(--header-height);
+    }
+
+    .button__header {
+        display: none;
+    }
+
+    .nav__toggle {
+        display: block;
+    }
+
+    .nav__menu {
+        position: fixed;
+        width: 100%;
+        background: var(--container-color);
+        top: -150%;
+        left: 0;
+        padding: 3.5rem 0;
+        z-index: var(--z-fixed);
+        border-radius: 0 0 .4rem .4rem;
+        transition: .4s;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        row-gap: 1.5rem;
+        align-items: center;
+    }
+
+    .nav__close {
+        display: block;
+        font-size: 1.8rem;
+        position: absolute;
+        top: .5rem;
+        right: .7rem;
+        cursor: pointer;
+    }
+
+    .nav__link {
+        color: var(--title-color);
+    }
+
+    .active-link::before {
+        background-color: var(--title-color);
+    }
+
+    /* Show Menu  */
+    .show-menu {
+        top: 0;
+    }
+
+    .home {
+        min-height: 700px;
+        padding-top: 14rem;
+    }
+
+    .about__committees {
+        display: none;
+    }
+
+    .teachers__container,
+    .cousres__container {
+        grid-template-columns: 320px;
+    }
+
+    .teacher__item {
+        padding: 1.25rem;
+    }
+
+    .brand__container {
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 2.5rem;
+    }
+
+    .footer__container {
+        grid-template-columns: 1fr;
+        row-gap: 2rem;
+        justify-content: start;
+    }
+
+    .footer__copy {
+        margin-top: 4.5rem;
+    }
+}
+
+@media screen and (max-width:576px) {
+    .home__description {
+        padding-right: 0;
+    }
+
+    .about__thumb-img {
+        width: 240px;
+    }
+
+    .about__banner-img {
+        width: 160px;
+    }
+
+    .about__banner {
+        margin-top: -25px;
+    }
+
+    .about__students {
+        margin-top: 20px;
+        margin-left: 0;
+    }
+
+    .brand__container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* For small devices */
+@media screen and (max-width:350px) {
+    .container {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .home {
+        min-height: 668px;
+    }
+
+    .home__subtitle {
+        font-size: var(--normal-font-size);
+    }
+
+    .home__title {
+        font-size: var(--h1-font-size);
+    }
+
+    .home__description {
+        font-size: var(--normal-font-size);
+    }
+
+    .about__review {
+        top: 4.5rem;
+    }
+
+    .about__banner-img {
+        width: 140px;
+    }
+
+    .cousres__container,
+    .teachers__container {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* start C# committee */
+.page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.page h1 {
+    color: #03A9F4;
+}
+
+.page .content-one {
+    width: calc(90% / 3);
+    /* margin: 0px auto; */
+}
+
+.content-one {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.timeline {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-top: -10px;
+}
+
+.timeline .timline-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.timeline .timline-content::before {
+    content: " ";
+    width: 2px;
+    height: 100%;
+    background-color: #03A9F4;
+    position: absolute;
+    left: 50%;
+    margin-left: -1px;
+    top: 0;
+
+}
+
+.timeline .timline-content .left,
+.timeline .timline-content .right {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.timeline .timline-content .left {
+    float: left;
+}
+
+.timeline .timline-content .left::before {
+    right: -35px;
+}
+
+.timeline .timline-content .right {
+    float: right;
+}
+
+.timeline .timline-content .right::before {
+    left: -35px;
+}
+
+.timeline .timline-content .content {
+    padding: 20px;
+    background-color: white;
+    z-index: 1000;
+    position: relative;
+    background-color: #eee;
+
+}
+
+.timeline .timline-content .content h3 {
+    font-weight: bold;
+    color: #03A9F4;
+    margin: 0 0 10px;
+
+}
+
+.timeline .timline-content .content p {
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.clearfix {
+    clear: both;
+}
+
+.header-c {
+    margin-top: 20px;
+    text-align: center;
+    color: #03A9F4;
+}
+
+/* @media(max-width:767px){
+    .timeline .timline-content .left,
+    .timeline .timline-content .right{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .timeline .timline-content .right::before,
+    .timeline .timline-content .left::before{
+        display: none;
+    }
+    .timeline .timline-content .left .content::before{
+        display: none;
+    }
+    .timeline .timline-content .right .content::before{
+        display: none;
+    }
+} */
+
+.page .image2 {
+    width: calc(90% / 3);
+}
+
+.page .image2 img {
+    width: 400px;
+    height: 50%;
+}
+
+.page .image1 {
+    width: calc(90% / 3);
+}
+
+.page .image1 img {
+    width: 400px;
+    height: 350px;
+}
+
+/* end C# committee */

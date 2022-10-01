@@ -25,7 +25,7 @@ class RegisterAPI(generics.GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
+        serializer.is_valid()
         user = serializer.save()
         profile = UserProfile()
         profile.user = user
@@ -44,7 +44,11 @@ class LoginAPI(KnoxLoginView):
         serializer.is_valid(raise_exception=True)
         user = serializer.validated_data['user']
         login(request, user)
-        return super(LoginAPI, self).post(request, format=None)
+        target_id = user.pk
+        profile = UserProfile.objects.get(user_id=target_id)
+        temp_list = super(LoginAPI, self).post(request, format=None)
+        temp_list.data["score"] = profile.score
+        return temp_list
 
 
 class AllUsers(APIView):
@@ -65,15 +69,16 @@ class AllProfiles(APIView):
 
 class UserView(APIView):
     def get(self, request, *args, **kwargs):
-        payload = request.data
-        print(payload)
-        target_id = payload['id']
+        print(kwargs)
+        target_name = kwargs['name']
+        print(target_name)
         result = {}
-        user = User.objects.get(pk=target_id)
+        user = User.objects.get(username=target_name)
+        target_id = user.pk
         profile = UserProfile.objects.get(user_id=target_id)
         result['score'] = profile.score
         result['name'] = user.username
-        return JsonResponse(data=result, status=status.HTTP_200_OK)
+        return Response(data=result, status=status.HTTP_200_OK)
 
 
 class RankedUserView(APIView):

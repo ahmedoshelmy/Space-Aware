@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css" />
+    <link rel="stylesheet" href="../assets/Css/Reels.css">
+    <title>Reels</title>
+</head>
+
+<body>
+    <a href="../index.html" class="signin"> Home </a>
+    <div class="app__video" id='reels-view'>
+        <div class="video">
+            <div class="video__header">
+                <i class=""></i>
+                <h3>Reels</h3>
+                <i class="" ></i>
+            </div>
+            <video src="../assets/video/microgravity.mp4" class="video__player">
+            </video>
+            <div class="video__footer">
+                <div class="video__footer-text">
+                    <h3>Micro Gravity</h3>
+                    <br>
+                    <p>risks of microgravity on space travelers</p>
+                </div>
+                <div class="video__footer-ticker">
+                    <i class="uil uil-music"></i>
+                    <marquee>Interstellar Theme Song</marquee>
+                </div>
+                <div class="video__footer-actions">
+                    <div class="video__footer-left">
+                        <i class="uil uil-bookmark-full"></i>
+                        <i class="uil uil-comment-alt-dots"></i>
+                        <i class="uil uil-message"></i>
+                        <i class="uil uil-ellipsis-h"></i>
+                    </div>
+                    <div class="video__footer-right">
+                        <div class="video__footer-stat">
+                            <i class="uil uil-heart"></i>
+                            <p>90</p>
+                        </div>
+                        <div class="video__footer-stat">
+                            <i class="uil uil-comment-alt-dots"></i>
+                            <p>45</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video">
+            <div class="video__header">
+                <i class=""></i>
+                <h3>Reels</h3>
+                <i class="" ></i>
+            </div>
+            <video src="../assets/video/radiation1.mp4" class="video__player">
+            </video>
+            <div class="video__footer">
+                <div class="video__footer-text">
+                    <h3>Radiation</h3>
+                    <br>
+                    <p>risks of Radiation on space travelers</p>
+                </div>
+                <div class="video__footer-ticker">
+                    <i class="uil uil-music"></i>
+                    <marquee>Interstellar Theme Song</marquee>
+                </div>
+                <div class="video__footer-actions">
+                    <div class="video__footer-left">
+                        <i class="uil uil-bookmark-full"></i>
+                        <i class="uil uil-comment-alt-dots"></i>
+                        <i class="uil uil-message"></i>
+                        <i class="uil uil-ellipsis-h"></i>
+                    </div>
+                    <div class="video__footer-right">
+                        <div class="video__footer-stat">
+                            <i class="uil uil-heart"></i>
+                            <p>36</p>
+                        </div>
+                        <div class="video__footer-stat">
+                            <i class="uil uil-comment-alt-dots"></i>
+                            <p>21</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="video">
+            <div class="video__header">
+                <i class=""></i>
+                <h3>Reels</h3>
+                <i class="" ></i>
+            </div>
+            <video src="../assets/video/My Video.mp4" class="video__player">
+            </video>
+            <div class="video__footer">
+                <div class="video__footer-text">
+                    <h3>Post flight back Pain</h3>
+                    <br>
+                    <p>effects of launching & landing on space travelers</p>
+                </div>
+                <div class="video__footer-ticker">
+                    <i class="uil uil-music"></i>
+                    <marquee>Interstellar Theme Song</marquee>
+                </div>
+                <div class="video__footer-actions">
+                    <div class="video__footer-left">
+                        <i class="uil uil-bookmark-full"></i>
+                        <i class="uil uil-comment-alt-dots"></i>
+                        <i class="uil uil-message"></i>
+                        <i class="uil uil-ellipsis-h"></i>
+                    </div>
+                    <div class="video__footer-right">
+                        <div class="video__footer-stat">
+                            <i class="uil uil-heart"></i>
+                            <p>89</p>
+                        </div>
+                        <div class="video__footer-stat">
+                            <i class="uil uil-comment-alt-dots"></i>
+                            <p>61</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        const videos =document.querySelectorAll('video');
+
+        for(const video of videos){
+            video.addEventListener('click',function(){
+                if(video.paused){
+                    video.play();
+                }
+                else{
+                    video.pause();
+                }
+            })
+        }
+
+    </script>
+    {% comment %} <script src="../assets/Js/login.js">
+    </script> {% endcomment %}
+</body>
+
+</html>

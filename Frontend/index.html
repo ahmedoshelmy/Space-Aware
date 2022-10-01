@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!--=============== UNICONS ===============-->
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/solid.css" />
+  <link rel="stylesheet" href="../assets/Css/chat.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!--=============== CSS ===============-->
+  <link rel="stylesheet" href="assets/Css/style.css" />
+
+  <!--======== CSS Sections ========-->
+
+  <title>Space Aware</title>
+  <script src="assets/Js/jquery-3.6.0.js"></script>
+</head>
+
+<body>
+
+  <!--Ull THing abive is  heeder-->
+  <div class="all" id="allcont">
+    <div class="pic">
+      <img src="assets/Img/backsign.jpeg">
+    </div>
+    <div class="Signup">
+      <div class="Exit" id="hi_signin" style="cursor: pointer; background: transparent;"><i class="uil uil-x"></i></div>
+      <h2>Sign Up</h2><br>
+      <label>Email</label><br>
+      <input id ='email-up' type="email" placeholder="Example@Example.com"><br>
+      <label>User name</label><br>
+      <input id = 'username-up'type="text" placeholder="Your Name"><br>
+      <label>Password</label><br>
+      <input type="password" id = 'password-up'placeholder="**********"><br>
+      <a id='sign-up-btn' href="#" class="button">Submit</a>
+    </div>
+  </div>
+  <!--=============== HEADER ===============-->
+  <div class="HoMEE" id="main">
+    <header class="header" id="header">
+      <nav class="nav container">
+        <a href="index.html" class="nav__logo logo__light"><img class="space-logo" src="assets/Img/image-removebg-preview.png"
+            alt=""></a>
+        <a href="index.html" class="nav__logo logo__dark"><img class="space-logo" src="assets/Img/image-removebg-preview.png"
+            alt=""></a>
+
+        <!-- <a href="index.html" class="nav__logo logo__light">MSP</a> -->
+        <!-- <a href="index.html" class="nav__logo logo__dark">MSP</a> -->
+
+        <div class="nav__menu" id="nav-menu">
+          <ul class="nav__list">
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Home</a>
+            </li>
+            <li class="nav__item">
+              <a href="articles.html" class="nav__link">Articles</a>
+            </li>
+            <li class="nav__item">
+              <a href="index.html" class="nav__link">Dashboard</a>
+            </li>
+            <li class="nav__item">
+              <a href="pages/Reels.html" class="nav__link">Reels</a>
+            </li>
+            <li class="nav__item">
+              <a href="pages/Game.html" class="nav__link">Game</a>
+            </li>
+            <li class="nav__item">
+              <a href="pages/Quizzes.html" class="nav__link">Quizzes</a>
+            </li>
+            <li class="nav__item">
+              <a href="pages/Account.html" class="nav__link">Account</a>
+            </li>
+          </ul>
+          <div class="nav__close" id="nav-close">
+            <i class="uil uil-times"></i>
+          </div>
+        </div>
+        <div class="nav__toggle" id="nav-toggle" onclick="showMenu()">
+          <i class="uil uil-apps"></i>
+        </div>
+
+        <a href="#" class="button button__header" id ='home-signup'>
+          Sign up
+        </a>
+        <a href="pages/Login.html" id ='home-login' class="button__in button__heder">
+          Log in
+        </a>
+        <a href="#" id ='home-logout' class="button__in button__heder">
+          Log Out
+        </a>
+
+      </nav>
+
+    </header>
+    <!--=============== MAIN ===============-->
+    <main class="main">
+      <!--=============== HOME ===============-->
+      <section class="home" id="home"></section>
+
+      <!--=============== ABOUT ===============-->
+      <section class="about section" id="about"></section>
+
+      <!--=============== TEACHERS ===============-->
+      <section class="teachers section" id="teachers"></section>
+      <!-- CHAT BAR BLOCK -->
+      <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible">Chat with a space Creature
+          <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+
+        <div class="content">
+          <div class="full-chat-block">
+            <!-- Message Container -->
+            <div class="outer-container">
+              <div class="chat-container">
+                <!-- Messages -->
+                <div id="chatbox">
+                  <h5 id="chat-timestamp"></h5>
+                  <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                </div>
+
+                <!-- User input box -->
+                <div class="chat-bar-input-block">
+                  <div id="userInput">
+                    <input id="textInput" class="input-box" type="text" name="msg"
+                      placeholder="Tap 'Enter' to send a message">
+                    <p></p>
+                  </div>
+
+                  <div class="chat-bar-icons">
+                    <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i>
+                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                  </div>
+                </div>
+
+                <div id="chat-bar-bottom">
+                  <p></p>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </main>
+    <!--=============== FOOTER ===============-->
+    <footer class="footer section" id="footer"></footer>
+  </div>
+  <!--=============== JS ===============-->
+  <script src="assets/Js/main.js"></script>
+  <script>
+    $(document).ready(function () {
+      // $("#header").load("section/header.html");
+      $("#home").load("section/home.html");
+      $("#about").load("section/about.html");
+      $("#teachers").load("section/teachers.html");
+      $("#committees").load("section/committees.html");
+      $("#brand").load("section/brand.html");
+      $("#footer").load("footer.html");
+    });
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="../assets/Js/chat.js"></script>
+  <script src="../assets/Js/responses.js"></script>
+  <script src="../assets/Js/LOG.js"></script>
+</body>
+
+</html>

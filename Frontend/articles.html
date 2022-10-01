@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="En">
+    <head>
+        <title>User-Data</title>
+        <link rel="stylesheet" href="./style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body class='articles-body'>
+        <div id = 'artilces-div'>
+            <hr style="width: 50%;">
+            <div class="con">
+                <h1>Title</h1>
+                <div class="grey">Category: Species: </div>
+                <br>
+                <div class="content">
+                    <div>
+                        <div id="DIV" class="gradient">
+                            </div><br>
+                        <button onclick="myFunction()" id="myBtn">
+                            <span id="btnText">show more</span>
+                            <i id="angle-down" class="uil uil-angle-down"></i>
+                            <i id="angle-up" class="uil uil-angle-up"></i>
+                        </button>
+                    </div>
+                    <div><img
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/800px-Image_created_with_a_mobile_phone.png"
+                            alt="image" class="image"></div>
+                </div>
+                <div>Resources: <a href="#">Resource</a></div>
+            </div>
+            <hr style="width: 50%;">
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="articles.js">
+        </script>
+    </body>
+</html>
